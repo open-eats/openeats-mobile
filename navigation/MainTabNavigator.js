@@ -1,12 +1,12 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import BrowseScreen from '../screens/BrowseScreen';
+import RecipeScreen from '../screens/RecipeScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -20,58 +20,51 @@ const HomeStack = createStackNavigator(
   config
 );
 
-HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-information-circle'
-      }
-    />
-  ),
-};
+// HomeStack.navigationOptions = {
+//   tabBarLabel: 'Home',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={
+//         Platform.OS === 'ios'
+//           ? `ios-information-circle${focused ? '' : '-outline'}`
+//           : 'md-information-circle'
+//       }
+//     />
+//   ),
+// };
 
 HomeStack.path = '';
 
-const LinksStack = createStackNavigator(
+const BrowseStack = createStackNavigator(
   {
-    Links: LinksScreen,
+    Browse: BrowseScreen,
   },
   config
 );
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-  ),
-};
+// BrowseStack.navigationOptions = {
+//   tabBarLabel: 'Browse',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
+//   ),
+// };
 
-LinksStack.path = '';
+BrowseStack.path = '';
 
-const SettingsStack = createStackNavigator(
+const RecipeStack = createStackNavigator(
   {
-    Settings: SettingsScreen,
+    Recipe: RecipeScreen,
   },
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-  ),
-};
+RecipeStack.path = '';
 
-SettingsStack.path = '';
-
-const tabNavigator = createBottomTabNavigator({
+const tabNavigator = createDrawerNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  RecipeStack,
+  BrowseStack,
 });
 
 tabNavigator.path = '';
