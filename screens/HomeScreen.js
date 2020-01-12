@@ -12,13 +12,11 @@ import {
 } from 'react-native';
 
 import { MonoText } from '../components/StyledText';
-import { SideBar } from './SideBar/SideBar'
 
 export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        {/*<SideBar/>*/}
         <ScrollView
           style={styles.container}
           contentContainerStyle={styles.contentContainer}>

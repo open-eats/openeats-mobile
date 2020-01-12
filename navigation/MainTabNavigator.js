@@ -39,6 +39,7 @@ HomeStack.path = '';
 const BrowseStack = createStackNavigator(
   {
     Browse: BrowseScreen,
+    Recipe: RecipeScreen,
   },
   config
 );
@@ -63,7 +64,7 @@ RecipeStack.path = '';
 
 const tabNavigator = createDrawerNavigator({
   HomeStack,
-  RecipeStack,
+  // RecipeStack,
   BrowseStack,
 });
 
