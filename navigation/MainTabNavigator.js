@@ -64,7 +64,6 @@ RecipeStack.path = '';
 
 const tabNavigator = createDrawerNavigator({
   HomeStack,
-  // RecipeStack,
   BrowseStack,
 });
 

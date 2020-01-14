@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Image, TouchableOpacity, View } from 'react-native';
+import { Container, Content, Card, CardItem, Text, Button, Icon, Left, Body, Col, Row, Grid } from 'native-base';
 
-import { Image } from 'react-native';
-import { Container, Content, Card, CardItem, Thumbnail, Text, Button, Icon, Left, Body } from 'native-base';
+import Ratings from '../components/Ratings';
 
 export default class BrowseScreen extends Component {
   render() {
@@ -11,37 +11,38 @@ export default class BrowseScreen extends Component {
     return (
       <Container>
         <Content>
-          <Card style={{flex: 1}}>
-            <CardItem>
-              <Left>
-                <Thumbnail source={{uri: 'Image URL'}} />
-                <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>April 15, 2016</Text>
-                </Body>
-              </Left>
-            </CardItem>
-            <CardItem>
-              <Body>
-                <Image source={{uri: 'Image URL'}} style={{height: 200, width: 200, flex: 1}}/>
-                <Text>
-                  //Your text here
-                </Text>
-              </Body>
-            </CardItem>
-            <CardItem>
-              <Left>
-                <Button
-                  transparent
-                  textStyle={{color: '#87838B'}}
-                  onPress={() => navigate('Recipe', {pk: 1})}
-                >
-                  <Icon name="logo-github" />
-                  <Text>1,926 stars</Text>
-                </Button>
-              </Left>
-            </CardItem>
-          </Card>
+          <TouchableOpacity onPress={() => navigate('Recipe', {pk: 1})}>
+            <Card  pointerEvents="none" style={{flex: 1}}>
+              <Grid>
+                <Col>
+                  <Image
+                    style={{width: 200, height: 200}}
+                    source={require('../assets/images/pizza.png')}
+                  />
+                </Col>
+                <Col>
+                  <CardItem header style={styles.top}>
+                    <Text>Rosemary Garlic White Bean Soup</Text>
+                  </CardItem>
+                  {/*<CardItem>*/}
+                    {/*<Body>*/}
+                      {/*<Text>*/}
+                        {/*This incredibly easy Soup takes only eight simple ingredients to deliver a bowl full of rich, bold flavor.*/}
+                      {/*</Text>*/}
+                    {/*</Body>*/}
+                  {/*</CardItem>*/}
+                  <CardItem style={styles.bottom}>
+                    <View>
+                      <Left>
+                        <Ratings stars={4}/>
+                      </Left>
+                      <Text note>April 15, 2016</Text>
+                    </View>
+                  </CardItem>
+                </Col>
+              </Grid>
+            </Card>
+          </TouchableOpacity>
         </Content>
       </Container>
     );
@@ -57,5 +58,12 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 15,
     backgroundColor: '#fff',
+  },
+  top: {
+    marginBottom: 'auto',
+  },
+  bottom: {
+    flex: 1,
+    marginTop: 'auto',
   },
 });
