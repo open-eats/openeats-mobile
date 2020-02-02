@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Content, Icon, View } from 'native-base';
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import { Icon, View } from 'native-base';
 
 class Ratings extends Component {
   render() {
@@ -35,7 +35,8 @@ const styles = StyleSheet.create({
   },
   star: {
     color: '#7e6',
-    marginBottom: -300
+    fontSize: 18
+    // marginBottom: -300
     // paddingTop: 15,
     // backgroundColor: '#fff',
   },

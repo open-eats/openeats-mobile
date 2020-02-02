@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image, TouchableOpacity, View } from 'react-native';
-import { Container, Content, Card, CardItem, Text, Button, Icon, Left, Body, Col, Row, Grid } from 'native-base';
+import { Container, Content, Card, CardItem, Text, Left, Col, Grid } from 'native-base';
 
 import Ratings from '../components/Ratings';
 
@@ -21,16 +21,14 @@ export default class BrowseScreen extends Component {
                   />
                 </Col>
                 <Col>
-                  <CardItem header style={styles.top}>
-                    <Text>Rosemary Garlic White Bean Soup</Text>
+                  <CardItem style={styles.top}>
+                    <Text style={styles.header}>Rosemary Garlic White Bean Soup</Text>
                   </CardItem>
-                  {/*<CardItem>*/}
-                    {/*<Body>*/}
-                      {/*<Text>*/}
-                        {/*This incredibly easy Soup takes only eight simple ingredients to deliver a bowl full of rich, bold flavor.*/}
-                      {/*</Text>*/}
-                    {/*</Body>*/}
-                  {/*</CardItem>*/}
+                  <CardItem>
+                    <Text style={styles.description}>
+                      This incredibly easy Soup delivers a bowl full of rich, bold flavor.
+                    </Text>
+                  </CardItem>
                   <CardItem style={styles.bottom}>
                     <View>
                       <Left>
@@ -54,13 +52,14 @@ BrowseScreen.navigationOptions = {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 15,
-    backgroundColor: '#fff',
-  },
   top: {
     marginBottom: 'auto',
+  },
+  header: {
+    fontWeight: 'bold'
+  },
+  description: {
+    fontSize: 14
   },
   bottom: {
     flex: 1,
