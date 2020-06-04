@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Image, TouchableOpacity, View } from 'react-native';
-import { Container, Content, Card, Text, Separator, Icon } from 'native-base';
+import { Container, Content, Card, Text, Separator, CardItem, Icon, Body } from 'native-base';
 
 import IngredientGroups from './IngredientGroups'
 import SubRecipes from './SubRecipes'
@@ -21,16 +21,19 @@ class RecipeScheme extends Component {
             title={ this.props.title }
             // addToMenu={ this.props.addToMenu }
           />
-            {/*<InfoPanel*/}
-              {/*cookTime={ this.props.cook_time }*/}
-              {/*prepTime={ this.props.prep_time }*/}
-              {/*servings={ this.props.servings }*/}
-              {/*customServings={ this.props.customServings }*/}
-              {/*info={ this.props.info }*/}
-              {/*updateServings={ this.props.recipeActions.updateServings }*/}
-              {/*clearServings={ this.props.recipeActions.resetServings }*/}
-            {/*/>*/}
+          {/*<InfoPanel*/}
+            {/*cookTime={ this.props.cook_time }*/}
+            {/*prepTime={ this.props.prep_time }*/}
+            {/*servings={ this.props.servings }*/}
+            {/*customServings={ this.props.customServings }*/}
+            {/*info={ this.props.info }*/}
+            {/*updateServings={ this.props.recipeActions.updateServings }*/}
+            {/*clearServings={ this.props.recipeActions.resetServings }*/}
+          {/*/>*/}
+          <CardItem cardBody>
             <Separator bordered><Text>Ingredients</Text></Separator>
+          </CardItem>
+          <CardItem cardBody>
             <SubRecipes
               data={[{
                 child_recipe_id: 1,
@@ -41,6 +44,8 @@ class RecipeScheme extends Component {
               }]}
               // check={ this.props.recipeActions.checkSubRecipe }
             />
+          </CardItem>
+          <CardItem cardBody>
             <IngredientGroups
               data={ this.props.ingredient_groups }
               // check={ this.props.recipeActions.checkIngredient }
@@ -52,14 +57,21 @@ class RecipeScheme extends Component {
               {/*checkAll={ this.props.recipeActions.checkAll }*/}
               {/*unCheckAll={ this.props.recipeActions.unCheckAll }*/}
             {/*/>*/}
-          <View
-            style={{
-              borderBottomColor: 'black',
-              borderBottomWidth: 1,
-            }}
-          />
-          <Separator bordered><Text>Directions</Text></Separator>
-          <Directions data={ this.props.directions }/>
+          </CardItem>
+          <CardItem cardBody>
+            <View
+              style={{
+                borderBottomColor: 'black',
+                borderBottomWidth: 1,
+              }}
+            />
+          </CardItem>
+          <CardItem cardBody>
+            <Separator bordered><Text>Directions</Text></Separator>
+          </CardItem>
+          <CardItem cardBody>
+            <Directions data={ this.props.directions }/>
+          </CardItem>
         </Card>
         {/*<RecipeFooter*/}
           {/*slug={ this.props.slug }*/}
